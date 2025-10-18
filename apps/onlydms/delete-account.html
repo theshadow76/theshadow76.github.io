@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Deletion - OnlyDMs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #A413EC;
+        }
+
+        .logo {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #A413EC;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+        }
+
+        h2 {
+            color: #A413EC;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 24px;
+            padding-top: 20px;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        .warning-box h3 {
+            color: #856404;
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .danger-box {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        .danger-box h3 {
+            color: #721c24;
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .info-box {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        .info-box h3 {
+            color: #0c5460;
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .steps {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .step:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .step-number {
+            background: #A413EC;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            flex-shrink: 0;
+            margin-right: 15px;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h4 {
+            color: #495057;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .step-content p {
+            margin-bottom: 0;
+            color: #6c757d;
+            text-align: left;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 4px solid #A413EC;
+        }
+
+        .contact-info h3 {
+            margin-top: 0;
+            color: #A413EC;
+        }
+
+        a {
+            color: #A413EC;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .data-list {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .data-list ul {
+            margin-left: 20px;
+        }
+
+        .btn-back {
+            display: inline-block;
+            background: #A413EC;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .btn-back:hover {
+            background: #8a10c7;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            body {
+                padding: 10px;
+            }
+
+            .step {
+                flex-direction: column;
+            }
+
+            .step-number {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🗑️</div>
+            <h1>Account Deletion</h1>
+            <p class="subtitle">How to delete your OnlyDMs account and what happens to your data</p>
+        </div>
+
+        <div class="warning-box">
+            <h3>⚠️ Important Notice</h3>
+            <p>Account deletion is permanent and cannot be undone. Please read this page carefully before proceeding with account deletion.</p>
+        </div>
+
+        <h2>How to Delete Your Account</h2>
+        
+        <p>You can delete your OnlyDMs account directly from the mobile app. Follow these simple steps:</p>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Open the App</h4>
+                    <p>Launch the OnlyDMs app on your mobile device and make sure you're logged in.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Go to Profile</h4>
+                    <p>Tap on the "Profile" icon in the bottom navigation bar.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Access Settings</h4>
+                    <p>Tap the settings icon (⚙️) in the top-right corner of your profile page.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Find Delete Account</h4>
+                    <p>Scroll down to find the "Delete Account" option at the bottom of the settings page.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Confirm Deletion</h4>
+                    <p>Read the warning message carefully and confirm that you want to permanently delete your account.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                    <h4>Enter Password</h4>
+                    <p>For security purposes, you'll need to re-enter your password to confirm the deletion.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">7</div>
+                <div class="step-content">
+                    <h4>Final Confirmation</h4>
+                    <p>Tap "Delete My Account" to complete the process. Your account will be deleted immediately.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>What Happens When You Delete Your Account</h2>
+
+        <div class="danger-box">
+            <h3>🚨 Data That Will Be Permanently Deleted</h3>
+            <p>The following information will be permanently removed and cannot be recovered:</p>
+        </div>
+
+        <div class="data-list">
+            <ul>
+                <li><strong>Profile Information:</strong> Your username, display name, bio, profile photo, and location</li>
+                <li><strong>Account Details:</strong> Email address, authentication credentials, and account settings</li>
+                <li><strong>Messages:</strong> All conversations, messages (text and audio), and media files you've sent or received</li>
+                <li><strong>Contacts:</strong> Your connection list and conversation history with other users</li>
+                <li><strong>Diamond Balance:</strong> Any remaining diamonds in your account (no refunds will be issued)</li>
+                <li><strong>Purchase History:</strong> Records of diamond purchases and transactions</li>
+                <li><strong>Call History:</strong> Video and voice call logs and records</li>
+                <li><strong>Settings and Preferences:</strong> All app settings, notification preferences, and customizations</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>📋 What Happens Immediately</h3>
+            <ul>
+                <li>Your profile will be removed from search and browse results</li>
+                <li>Other users will no longer be able to message you</li>
+                <li>Your conversations will be deleted from your account and other users' accounts</li>
+                <li>You will be logged out of all devices</li>
+                <li>Your profile will become inaccessible</li>
+            </ul>
+        </div>
+
+        <h2>Important Considerations Before Deleting</h2>
+
+        <h3>💎 Diamond Purchases</h3>
+        <p>Any remaining diamonds in your account will be lost upon deletion. <strong>No refunds will be issued</strong> for unused diamonds. We recommend using your diamonds before deleting your account.</p>
+
+        <h3>💬 Active Conversations</h3>
+        <p>All your conversations will be permanently deleted. If you have important messages, we recommend saving or backing them up before proceeding with account deletion.</p>
+
+        <h3>📱 Subscription and Payments</h3>
+        <p>If you have any active subscriptions or pending payments, please make sure to cancel them before deleting your account. Account deletion does not automatically cancel subscriptions through the Google Play Store.</p>
+
+        <h3>⏰ Deletion Timeline</h3>
+        <p>Account deletion is immediate, but some data may be retained for a limited time for the following reasons:</p>
+        <ul>
+            <li><strong>Legal Requirements:</strong> We may retain certain data for legal, tax, or regulatory purposes (typically 30-90 days)</li>
+            <li><strong>Backup Systems:</strong> Data in backup systems will be deleted according to our backup retention schedule (within 30 days)</li>
+            <li><strong>Fraud Prevention:</strong> Minimal data may be retained to prevent abuse and fraud</li>
+        </ul>
+
+        <h2>Alternative Options</h2>
+
+        <div class="info-box">
+            <h3>💡 Consider These Alternatives</h3>
+            <p>Before permanently deleting your account, you might want to consider:</p>
+            <ul>
+                <li><strong>Logout:</strong> Simply log out if you want to take a break without losing your data</li>
+                <li><strong>Disable Notifications:</strong> Turn off push notifications in settings if they're bothering you</li>
+                <li><strong>Clear Conversations:</strong> Delete individual conversations instead of your entire account</li>
+                <li><strong>Update Privacy Settings:</strong> Adjust your profile visibility and privacy preferences</li>
+            </ul>
+        </div>
+
+        <h2>Can I Recover My Account?</h2>
+
+        <div class="danger-box">
+            <h3>⛔ No Account Recovery</h3>
+            <p>Once your account is deleted, it <strong>CANNOT be recovered or restored</strong>. This includes:</p>
+            <ul>
+                <li>Your username will become available for others to use</li>
+                <li>All messages, photos, and data will be permanently lost</li>
+                <li>Your purchase history and diamond balance cannot be retrieved</li>
+                <li>You will need to create a completely new account to use OnlyDMs again</li>
+            </ul>
+        </div>
+
+        <h2>Need Help?</h2>
+
+        <p>If you're experiencing issues with the app or have concerns, please contact us before deleting your account. We're here to help!</p>
+
+        <div class="contact-info">
+            <h3>📧 Contact Support</h3>
+            <p>If you have questions about account deletion or need assistance:</p>
+            <p><strong>Email:</strong> <a href="mailto:support@onlydms.com">support@onlydms.com</a></p>
+            <p><strong>Account Issues:</strong> <a href="mailto:accounts@onlydms.com">accounts@onlydms.com</a></p>
+            <p><strong>Response Time:</strong> We typically respond within 24-48 hours</p>
+            <br>
+            <p><strong>Having trouble deleting your account?</strong> Contact us and we can assist you with the deletion process.</p>
+        </div>
+
+        <h2>Privacy & Data Protection</h2>
+
+        <p>We take your privacy seriously. For more information about how we handle your data, please review our:</p>
+        <ul>
+            <li><a href="privacy_policy.html">Privacy Policy</a> - How we collect and use your information</li>
+            <li><a href="#">Terms of Service</a> - Our terms and conditions</li>
+            <li><a href="#">Data Protection Policy</a> - How we protect your data</li>
+        </ul>
+
+        <h2>Your Rights</h2>
+
+        <p>Under data protection laws (GDPR, CCPA, etc.), you have the right to:</p>
+        <ul>
+            <li><strong>Access Your Data:</strong> Request a copy of your personal data</li>
+            <li><strong>Data Portability:</strong> Receive your data in a machine-readable format</li>
+            <li><strong>Rectification:</strong> Correct inaccurate personal data</li>
+            <li><strong>Erasure:</strong> Request deletion of your personal data (Right to be Forgotten)</li>
+            <li><strong>Object to Processing:</strong> Object to certain types of data processing</li>
+        </ul>
+
+        <p>To exercise these rights, please contact us at <a href="mailto:privacy@onlydms.com">privacy@onlydms.com</a></p>
+
+        <div class="footer">
+            <a href="privacy_policy.html" class="btn-back">← Back to Privacy Policy</a>
+            <p style="margin-top: 30px;"><strong>OnlyDMs</strong> - Secure Messaging Platform</p>
+            <p>© 2025 OnlyDMs. All rights reserved.</p>
+            <p>Last Updated: October 18, 2025</p>
+        </div>
+    </div>
+</body>
+</html>
